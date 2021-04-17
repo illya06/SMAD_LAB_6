@@ -9,11 +9,98 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
+    <style>
+        span {
+            float: right;
+        }
+    </style>
+
     <title>SMAD LAB 6</title>
 </head>
 
 <body>
+    <div class="container">
+        <div class="container row">
+            <div class="container">
+                <h4 class="mt-5">DATA POOL A</h4>
+                <div class="input-group input-group mt-1 mb-3 col-8">
+                    <span class="input-group-text">X : </span>
+                    <input id="data1" type="text" class="form-control">
+                </div>
+                <div class="input-group input-group mb-3 col-8">
+                    <span class="input-group-text">Y : </span>
+                    <input id="data2" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="container">
+                <h4 class="mt-5">DATA POOL B</h4>
+                <div class="input-group input-group mt-1 mb-3 col-8">
+                    <span class="input-group-text">X : </span>
+                    <input id="data1_b" type="text" class="form-control">
+                </div>
+                <div class="input-group input-group mb-3 col-8">
+                    <span class="input-group-text">Y : </span>
+                    <input id="data2_b" type="text" class="form-control">
+                </div>
+            </div>
 
+            <div class="btn-group mt-3 mb-5" role="group">
+                <button onclick="run(0.999)" type="button" class="btn btn-outline-dark">RELIABILITY : 0.999</button>
+                <button onclick="run(0.99)" type="button" class="btn btn-outline-dark">RELIABILITY : 0.990</button>
+                <button onclick="run(0.95)" type="button" class="btn btn-outline-dark">RELIABILITY : 0.950</button>
+            </div>
+        </div>
+
+        <div class="container mt-5">
+            <div class="container">
+                <h2 class="mb-3">
+                    Набір даних (А)
+                </h2>
+                <h4>
+                    Коваріація: <span id="a_K"></span>
+                </h4>
+                <h4>
+                    Середнє квадратичне відхилення по Х: <span id="a_Sx"></span>
+                </h4>
+                <h4>
+                    Середнє квадратичне відхилення по Y: <span id="a_Sy"></span>
+                </h4>
+                <h4>
+                    Коефіцієнт кореляції: <span id="a_r"></span>
+                </h4>
+                <h4>
+                    Інтервальна оцінка функції Фішера: <span id="a_fisher"></span>
+                </h4>
+                <h4>
+                    Оцінка за кореляцією: <span id="a_korel"></span>
+                </h4>
+            </div>
+            <div class="container mt-5">
+                <h2 class="mb-3">
+                    Набір даних (Б)
+                </h2>
+                <h4>
+                    Коваріація: <span id="b_K"></span>
+                </h4>
+                <h4>
+                    Середнє квадратичне відхилення по Х: <span id="b_Sx"></span>
+                </h4>
+                <h4>
+                    Середнє квадратичне відхилення по Y: <span id="b_Sy"></span>
+                </h4>
+                <h4>
+                    Коефіцієнт кореляції: <span id="b_r"></span>
+                </h4>
+                <h4>
+                    Оцінка за критерієм Романовського: <span id="b_roman"></span>
+                </h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- My scripts -->
+    <script src="../js/logic.js" />
+    <script src="../js/globals.js" />
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
