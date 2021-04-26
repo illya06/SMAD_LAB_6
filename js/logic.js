@@ -42,7 +42,7 @@ function calcKovariation(data1, data2) {
     let avg2 = getAvg(data2)
 
     for (let i = 0; i < len; i++)
-        sum += Math.pow((data1[i] - avg1) * (data2[i] - avg2), 2)
+        sum += (data1[i] - avg1) * (data2[i] - avg2)
 
     return sum / len
 }
@@ -73,7 +73,7 @@ function setParameters() {
         `<kbd>${(Z0 - ZKoef).toFixed(4)} < z = (${(Z0).toFixed(4)}) < ${(Z0 + ZKoef).toFixed(4)}</kbd>`;
 
     document.getElementById('a_korel').innerHTML =
-        `<kbd> r = (${(R).toFixed(4)}) > len = (${(2 * ZKoef).toFixed(4)}) ==> ${R > 2 * ZKoef ? "Зв'язок є" : "Зв'язку немає"}</kbd>`;
+        `<kbd> len = (${(2 * ZKoef).toFixed(4)}) > r = (${(R).toFixed(4)}) ==> ${2 * ZKoef > R ? "Зв'язку немає" : "Зв'язок є"}</kbd>`;
 
     Sx = calcMidStat(data_1_b)
     Sy = calcMidStat(data_2_b)
