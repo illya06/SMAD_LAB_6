@@ -55,6 +55,7 @@ function setParameters() {
 
     Z0 = Math.log((1 + R) / (1 - R)) / 2
     let ZKoef = t / Math.sqrt(data_1_a.length - 3)
+    let RKoef = t * (1 - R * R) / Math.sqrt(data_1_a.length)
 
     //print results
     document.getElementById('a_K').innerHTML =
@@ -69,11 +70,14 @@ function setParameters() {
     document.getElementById('a_r').innerHTML =
         `<kbd>${R.toFixed(4)}</kbd>`;
 
-    document.getElementById('a_fisher').innerHTML =
-        `<kbd>${(Z0 - ZKoef).toFixed(4)} < z = (${(Z0).toFixed(4)}) < ${(Z0 + ZKoef).toFixed(4)}</kbd>`;
+    document.getElementById('fisher').innerHTML =
+        `<kbd>${(Z0 - ZKoef).toFixed(4)} < Z = (${(Z0).toFixed(4)}) < ${(Z0 + ZKoef).toFixed(4)}</kbd>`;
 
-    document.getElementById('a_korel').innerHTML =
-        `<kbd> len = (${(2 * ZKoef).toFixed(4)}) > r = (${(R).toFixed(4)}) ==> ${2 * ZKoef > R ? "Зв'язку немає" : "Зв'язок є"}</kbd>`;
+    document.getElementById('korel').innerHTML =
+        `<kbd>${(R - RKoef).toFixed(4)} < R = (${(R).toFixed(4)}) < ${(R + RKoef).toFixed(4)}</kbd>`;
+
+    document.getElementById('verdict').innerHTML =
+        `<kbd> R = (${(R).toFixed(4)}) < len = (${(2 * ZKoef).toFixed(4)}) ? ${2 * ZKoef < R ? "Так [зв'язок є]" : "Ні [зв'язку немає]"}</kbd>`;
 
     Sx = calcMidStat(data_1_b)
     Sy = calcMidStat(data_2_b)
@@ -93,7 +97,10 @@ function setParameters() {
     document.getElementById('b_r').innerHTML =
         `<kbd>${R.toFixed(4)}</kbd>`;
 
+    document.getElementById('b_rkoef').innerHTML =
+        `<kbd>${RomanKoef.toFixed(4)}</kbd>`;
+
     document.getElementById('b_roman').innerHTML =
-        `<kbd>korel = (${(R).toFixed(4)}) > roman = (${(RomanKoef).toFixed(4)}) ==> ${R > RomanKoef ? "Зв'язок є" : "Зв'язку немає"}</kbd>`;
+        `<kbd>korel = (${R.toFixed(4)}) > roman = (${RomanKoef.toFixed(4)}) ? ${R > RomanKoef ? "Так [зв'язок є]" : "Ні [зв'язку немає]"}</kbd>`;
 }
 
