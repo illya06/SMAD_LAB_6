@@ -53,7 +53,7 @@ function setParameters() {
     K = calcKovariation(data_1_a, data_2_a)
     R = K / (Sx * Sy)
 
-    Z0 = Math.log10((1 + R) / (1 - R)) / 2
+    Z0 = Math.log((1 + R) / (1 - R)) / 2
     let ZKoef = t / Math.sqrt(data_1_a.length - 3)
 
     //print results
