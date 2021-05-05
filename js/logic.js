@@ -74,7 +74,7 @@ function setParameters() {
         `<kbd>${(Z0 - ZKoef).toFixed(4)} < Z = (${(Z0).toFixed(4)}) < ${(Z0 + ZKoef).toFixed(4)}</kbd>`;
 
     document.getElementById('korel').innerHTML =
-        `<kbd>${(R - RKoef).toFixed(4)} < R = (${(R).toFixed(4)}) < ${(R + RKoef).toFixed(4)}</kbd>`;
+        `<kbd>${(Math.tanh(Z0 - t / Math.sqrt(data_1_a.length - 3))).toFixed(4)} < R = (${(R).toFixed(4)}) < ${(Math.tanh(Z0 + t / Math.sqrt(data_1_a.length - 3))).toFixed(4)}</kbd>`;
 
     document.getElementById('verdict').innerHTML =
         `<kbd> R = (${(R).toFixed(4)}) < len = (${(2 * ZKoef).toFixed(4)}) ? ${2 * ZKoef < R ? "Так [зв'язок є]" : "Ні [зв'язку немає]"}</kbd>`;
